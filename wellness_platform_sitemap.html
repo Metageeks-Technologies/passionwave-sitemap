@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wellness Platform Sitemap</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: #ffffff;
+    color: #1a1a1a;
+    padding: 32px 36px 40px;
+    font-size: 11px;
+  }
+
+  .page-header {
+    text-align: center;
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 1.5px solid #E5E5E2;
+  }
+  .page-header .logo {
+    font-size: 10px;
+    font-weight: 600;
+    color: #888;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .page-header h1 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #111;
+    letter-spacing: -0.3px;
+  }
+  .page-header p {
+    font-size: 11px;
+    color: #888;
+    margin-top: 4px;
+  }
+
+  .lane-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 14px;
+    margin-bottom: 14px;
+  }
+
+  .lane {
+    border-radius: 12px;
+    border: 1.5px solid #E5E5E2;
+    overflow: hidden;
+    page-break-inside: avoid;
+  }
+
+  .lane-header {
+    padding: 9px 12px;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+  }
+
+  .lane-dot {
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .lane-user .lane-header   { background: #EEF2FF; color: #3730A3; border-bottom: 1.5px solid #C7D2FE; }
+  .lane-user .lane-dot      { background: #6366F1; }
+  .lane-doctor .lane-header { background: #ECFDF5; color: #065F46; border-bottom: 1.5px solid #A7F3D0; }
+  .lane-doctor .lane-dot    { background: #10B981; }
+  .lane-admin .lane-header  { background: #FFF7ED; color: #9A3412; border-bottom: 1.5px solid #FED7AA; }
+  .lane-admin .lane-dot     { background: #F97316; }
+
+  .lane-body { padding: 10px 8px 12px; display: flex; flex-direction: column; gap: 5px; background: #FAFAF9; }
+
+  .node {
+    border-radius: 7px;
+    padding: 6px 8px;
+    font-size: 11px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    background: #fff;
+    border: 1px solid #E5E5E2;
+    color: #1a1a1a;
+  }
+
+  .node-icon {
+    width: 20px; height: 20px;
+    border-radius: 5px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 10px;
+    flex-shrink: 0;
+  }
+
+  .node-text { flex: 1; }
+  .node-title { font-size: 11px; font-weight: 500; color: #1a1a1a; }
+  .sub { font-size: 9.5px; font-weight: 400; color: #888; margin-top: 1px; }
+
+  .badge {
+    margin-left: auto;
+    font-size: 8.5px;
+    font-weight: 600;
+    padding: 2px 5px;
+    border-radius: 8px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .badge-ai    { background: #EDE9FE; color: #5B21B6; }
+  .badge-kyc   { background: #DBEAFE; color: #1E40AF; }
+  .badge-mvp   { background: #DCFCE7; color: #166534; }
+  .badge-p2    { background: #FEF9C3; color: #854D0E; }
+  .badge-bc    { background: #FCE7F3; color: #9D174D; }
+
+  .divider { height: 1px; background: #EBEBEB; margin: 3px 0; }
+
+  .section-label {
+    font-size: 8.5px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #ADADAD;
+    padding: 0 2px;
+    margin-bottom: 1px;
+    margin-top: 3px;
+  }
+
+  .shared-section {
+    border-radius: 12px;
+    border: 1.5px solid #E5E5E2;
+    overflow: hidden;
+    margin-bottom: 14px;
+  }
+  .shared-header {
+    background: #F4F3F0;
+    padding: 9px 14px;
+    font-size: 10px;
+    font-weight: 600;
+    color: #555;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    display: flex; align-items: center; gap: 7px;
+    border-bottom: 1.5px solid #DDDCD8;
+  }
+  .shared-dot { width: 7px; height: 7px; border-radius: 50%; background: #888; flex-shrink: 0; }
+  .shared-body {
+    background: #FAFAF9;
+    padding: 12px 10px 14px;
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    gap: 7px;
+  }
+
+  .shared-node {
+    border-radius: 7px;
+    padding: 8px 6px;
+    font-size: 10px;
+    font-weight: 500;
+    border: 1px solid #E5E5E2;
+    background: #fff;
+    color: #1a1a1a;
+    text-align: center;
+    display: flex; flex-direction: column; align-items: center; gap: 3px;
+  }
+  .shared-node .icon { font-size: 14px; }
+  .shared-node .label { font-size: 10px; font-weight: 500; }
+  .shared-node .sub { font-size: 8.5px; color: #888; font-weight: 400; }
+
+  .legend {
+    display: flex; gap: 14px; flex-wrap: wrap;
+    padding: 10px 2px 0;
+    border-top: 1px solid #E5E5E2;
+  }
+  .legend-item {
+    display: flex; align-items: center; gap: 5px;
+    font-size: 9.5px; color: #888;
+  }
+  .legend-pill {
+    padding: 2px 6px;
+    border-radius: 8px;
+    font-size: 8.5px;
+    font-weight: 600;
+  }
+
+  .page-footer {
+    text-align: right;
+    font-size: 9px;
+    color: #ccc;
+    margin-top: 16px;
+    padding-top: 10px;
+    border-top: 1px solid #EBEBEB;
+  }
+</style>
+</head>
+<body>
+
+<div class="page-header">
+  <div class="logo">Metageeks Technologies Pvt. Ltd.</div>
+  <h1>Wellness Healthcare Platform — Sitemap</h1>
+  <p>Platform architecture · User journeys · Phase coverage</p>
+</div>
+
+<div class="lane-row">
+
+  <!-- USER LANE -->
+  <div class="lane lane-user">
+    <div class="lane-header"><div class="lane-dot"></div>User journey</div>
+    <div class="lane-body">
+      <div class="section-label">Entry</div>
+      <div class="node"><div class="node-icon" style="background:#EEF2FF;">🌐</div><div class="node-text"><div class="node-title">Landing page</div><div class="sub">Anonymous browsing</div></div><span class="badge badge-mvp">MVP</span></div>
+      <div class="node"><div class="node-icon" style="background:#EEF2FF;">✉️</div><div class="node-text"><div class="node-title">Signup / login</div><div class="sub">Mobile or email OTP</div></div><span class="badge badge-mvp">MVP</span></div>
+      <div class="divider"></div>
+      <div class="section-label">Engagement</div>
+      <div class="node"><div class="node-icon" style="background:#EDE9FE;">🤖</div><div class="node-text"><div class="node-title">AI chatbot</div><div class="sub">Symptom collection</div></div><span class="badge badge-ai">AI</span></div>
+      <div class="node"><div class="node-icon" style="background:#DBEAFE;">🪪</div><div class="node-text"><div class="node-title">KYC verification</div><div class="sub">Aadhaar · PAN · face match</div></div><span class="badge badge-kyc">Digio</span></div>
+      <div class="node"><div class="node-icon" style="background:#EEF2FF;">📋</div><div class="node-text"><div class="node-title">Consent signing</div><div class="sub">DigiSign documents</div></div><span class="badge badge-mvp">MVP</span></div>
+      <div class="divider"></div>
+      <div class="section-label">Consultation</div>
+      <div class="node"><div class="node-icon" style="background:#ECFDF5;">📅</div><div class="node-text"><div class="node-title">Book doctor</div><div class="sub">Calendar + speciality</div></div><span class="badge badge-p2">P2</span></div>
+      <div class="node"><div class="node-icon" style="background:#ECFDF5;">🎥</div><div class="node-text"><div class="node-title">Video / voice / chat</div><div class="sub">Live consultation</div></div><span class="badge badge-p2">P2</span></div>
+      <div class="divider"></div>
+      <div class="section-label">Post-consultation</div>
+      <div class="node"><div class="node-icon" style="background:#F5F3FF;">🗄️</div><div class="node-text"><div class="node-title">Medical vault</div><div class="sub">Records · prescriptions</div></div><span class="badge badge-mvp">MVP</span></div>
+      <div class="node"><div class="node-icon" style="background:#FFF7ED;">🛒</div><div class="node-text"><div class="node-title">Wellness store</div><div class="sub">Products · checkout</div></div><span class="badge badge-p2">P2</span></div>
+      <div class="node"><div class="node-icon" style="background:#EDE9FE;">🔔</div><div class="node-text"><div class="node-title">AI follow-ups</div><div class="sub">Nudges · reminders</div></div><span class="badge badge-ai">AI</span></div>
+    </div>
+  </div>
+
+  <!-- DOCTOR LANE -->
+  <div class="lane lane-doctor">
+    <div class="lane-header"><div class="lane-dot"></div>Doctor (tenant)</div>
+    <div class="lane-body">
+      <div class="section-label">Onboarding</div>
+      <div class="node"><div class="node-icon" style="background:#ECFDF5;">🧑‍⚕️</div><div class="node-text"><div class="node-title">Doctor signup</div><div class="sub">Profile + speciality</div></div><span class="badge badge-mvp">MVP</span></div>
+      <div class="node"><div class="node-icon" style="background:#DBEAFE;">🪪</div><div class="node-text"><div class="node-title">DigiKYC + licence</div><div class="sub">MCI verification</div></div><span class="badge badge-kyc">Digio</span></div>
+      <div class="node"><div class="node-icon" style="background:#ECFDF5;">✍️</div><div class="node-text"><div class="node-title">Platform agreement</div><div class="sub">DigiSign onboarding</div></div><span class="badge badge-mvp">MVP</span></div>
+      <div class="divider"></div>
+      <div class="section-label">Dashboard</div>
+      <div class="node"><div class="node-icon" style="background:#ECFDF5;">📊</div><div class="node-text"><div class="node-title">Practice dashboard</div><div class="sub">Appointments · queue</div></div><span class="badge badge-mvp">MVP</span></div>
+      <div class="node"><div class="node-icon" style="background:#ECFDF5;">👥</div><div class="node-text"><div class="node-title">Patient management</div><div class="sub">Records · consent view</div></div><span class="badge badge-mvp">MVP</span></div>
+      <div class="divider"></div>
+      <div class="section-label">Consultation</div>
+      <div class="node"><div class="node-icon" style="background:#ECFDF5;">🎥</div><div class="node-text"><div class="node-title">Conduct session</div><div class="sub">Chat · voice · video</div></div><span class="badge badge-p2">P2</span></div>
+      <div class="node"><div class="node-icon" style="background:#ECFDF5;">💊</div><div class="node-text"><div class="node-title">Prescription builder</div><div class="sub">Mapped to products</div></div><span class="badge badge-p2">P2</span></div>
+      <div class="node"><div class="node-icon" style="background:#EDE9FE;">🤖</div><div class="node-text"><div class="node-title">AI-assisted notes</div><div class="sub">Context-aware summary</div></div><span class="badge badge-ai">AI</span></div>
+      <div class="divider"></div>
+      <div class="section-label">Earnings</div>
+      <div class="node"><div class="node-icon" style="background:#FFF7ED;">💰</div><div class="node-text"><div class="node-title">Wallet & payouts</div><div class="sub">Razorpay settlement</div></div><span class="badge badge-p2">P2</span></div>
+      <div class="node"><div class="node-icon" style="background:#ECFDF5;">📈</div><div class="node-text"><div class="node-title">Earnings analytics</div><div class="sub">Monthly reports</div></div><span class="badge badge-p2">P2</span></div>
+    </div>
+  </div>
+
+  <!-- ADMIN LANE -->
+  <div class="lane lane-admin">
+    <div class="lane-header"><div class="lane-dot"></div>Super admin</div>
+    <div class="lane-body">
+      <div class="section-label">Overview</div>
+      <div class="node"><div class="node-icon" style="background:#FFF7ED;">🏠</div><div class="node-text"><div class="node-title">Admin dashboard</div><div class="sub">Users · revenue · KPIs</div></div><span class="badge badge-mvp">MVP</span></div>
+      <div class="divider"></div>
+      <div class="section-label">User & tenant ops</div>
+      <div class="node"><div class="node-icon" style="background:#DBEAFE;">🔍</div><div class="node-text"><div class="node-title">KYC monitoring</div><div class="sub">Success / failure rates</div></div><span class="badge badge-mvp">MVP</span></div>
+      <div class="node"><div class="node-icon" style="background:#FFF7ED;">👥</div><div class="node-text"><div class="node-title">Tenant management</div><div class="sub">Activate · suspend</div></div><span class="badge badge-mvp">MVP</span></div>
+      <div class="node"><div class="node-icon" style="background:#FFF7ED;">📄</div><div class="node-text"><div class="node-title">Consent templates</div><div class="sub">Create · version</div></div><span class="badge badge-mvp">MVP</span></div>
+      <div class="divider"></div>
+      <div class="section-label">AI & compliance</div>
+      <div class="node"><div class="node-icon" style="background:#EDE9FE;">🤖</div><div class="node-text"><div class="node-title">AI control panel</div><div class="sub">Monitor chatbot logs</div></div><span class="badge badge-ai">AI</span></div>
+      <div class="node"><div class="node-icon" style="background:#FFF7ED;">🛡️</div><div class="node-text"><div class="node-title">Risk & fraud control</div><div class="sub">Trust signals · flags</div></div><span class="badge badge-p2">P2</span></div>
+      <div class="divider"></div>
+      <div class="section-label">Commerce</div>
+      <div class="node"><div class="node-icon" style="background:#FFF7ED;">📦</div><div class="node-text"><div class="node-title">Product catalogue</div><div class="sub">Add · price · category</div></div><span class="badge badge-p2">P2</span></div>
+      <div class="node"><div class="node-icon" style="background:#FFF7ED;">💸</div><div class="node-text"><div class="node-title">Commission mgmt</div><div class="sub">Doctor split rules</div></div><span class="badge badge-p2">P2</span></div>
+      <div class="node"><div class="node-icon" style="background:#FFF7ED;">🚚</div><div class="node-text"><div class="node-title">Logistics (Shiprocket)</div><div class="sub">Orders · inventory</div></div><span class="badge badge-p2">P2</span></div>
+      <div class="divider"></div>
+      <div class="section-label">Security</div>
+      <div class="node"><div class="node-icon" style="background:#FCE7F3;">⛓️</div><div class="node-text"><div class="node-title">Blockchain audit logs</div><div class="sub">Immutable consent trail</div></div><span class="badge badge-bc">Phase 3</span></div>
+    </div>
+  </div>
+
+</div>
+
+<!-- SHARED INFRA -->
+<div class="shared-section">
+  <div class="shared-header"><div class="shared-dot"></div>Shared platform infrastructure</div>
+  <div class="shared-body">
+    <div class="shared-node"><div class="icon">🪪</div><div class="label">Digio KYC</div><div class="sub">Aadhaar · PAN</div></div>
+    <div class="shared-node"><div class="icon">✍️</div><div class="label">DigiSign</div><div class="sub">Consent · agreements</div></div>
+    <div class="shared-node"><div class="icon">💳</div><div class="label">Razorpay</div><div class="sub">Payments · wallet</div></div>
+    <div class="shared-node"><div class="icon">🔔</div><div class="label">Notifications</div><div class="sub">SMS · email · push</div></div>
+    <div class="shared-node"><div class="icon">🗄️</div><div class="label">Doc vault</div><div class="sub">Encrypted storage</div></div>
+    <div class="shared-node"><div class="icon">🤖</div><div class="label">AI engine</div><div class="sub">Chatbot · context</div></div>
+    <div class="shared-node"><div class="icon">☁️</div><div class="label">AWS infra</div><div class="sub">Deploy · CDN</div></div>
+    <div class="shared-node"><div class="icon">📱</div><div class="label">Mobile apps</div><div class="sub">Android · iOS</div></div>
+  </div>
+</div>
+
+<div class="legend">
+  <div class="legend-item"><span class="legend-pill badge-mvp">MVP</span> Phase 1 delivery (months 1–4)</div>
+  <div class="legend-item"><span class="legend-pill badge-p2">P2</span> Phase 2 (months 5–10)</div>
+  <div class="legend-item"><span class="legend-pill badge-ai">AI</span> AI-powered feature</div>
+  <div class="legend-item"><span class="legend-pill badge-kyc">Digio</span> Digio integration</div>
+  <div class="legend-item"><span class="legend-pill badge-bc">Phase 3</span> Blockchain layer</div>
+</div>
+
+<div class="page-footer">Metageeks Technologies Pvt. Ltd. &nbsp;·&nbsp; Confidential &nbsp;·&nbsp; Wellness Healthcare Platform</div>
+
+</body>
+</html>
